@@ -5,15 +5,17 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
-    "start": "next start"
+    "start": "next start",
+    "serve:watch": "nodemon --watch pages --watch components --ext js,jsx,ts,tsx --exec 'npm run build && npm start'"
   },
   "dependencies": {
+    "next": "15.5.6",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.6"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "nodemon": "^3.1.10",
     "tailwindcss": "^4"
   }
 }
