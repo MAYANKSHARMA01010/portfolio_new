@@ -1,4 +1,5 @@
-import Footer from "@/components/footer";
+import SpacePortfolio from "../components/Dummy";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <div>
       <Navbar />
       <Footer />
+      {/* <SpacePortfolio /> */}
     </div>
   );
 }
