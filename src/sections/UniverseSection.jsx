@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ContactMe() {
+function UniverseSection() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function ContactMe() {
   )
 }
 
-export default ContactMe
+export default UniverseSection
