@@ -13,7 +13,7 @@ const skills = [
   { name: "PostgreSQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
   { name: "Git", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   { name: "GitHub", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-  { name: "Zoho", img: "/ZOHO_img.webp" },
+  { name: "Zoho", img: "/zoho_img.webp" },
   { name: "Strapi", img: "/strapi_img.webp" },
   { name: "Shiprocket", img: "/Shiprocket_img.webp" },
   { name: "Python", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
