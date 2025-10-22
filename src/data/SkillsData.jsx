@@ -1,4 +1,5 @@
 import React from "react";
+
 const skills = [
   { name: "HTML5", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
   { name: "CSS3", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
@@ -28,20 +29,35 @@ const skills = [
 
 export default function SkillsData() {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-      {skills.map((skill) => (
-        <div
-          key={skill.name}
-          className="flex flex-col items-center justify-center p-4 bg-white/5 rounded-2xl border border-white/10 shadow-md cursor-pointer transition-all transform hover:scale-105 hover:shadow-xl hover:bg-cyan-500/10"
-        >
-          <img
-            src={skill.img}
-            alt={skill.name}
-            className="w-16 h-16 object-contain mb-3 transition-transform duration-300 hover:scale-110"
-          />
-          <p className="text-white/80 font-medium text-sm md:text-base text-center">{skill.name}</p>
-        </div>
-      ))}
+    <div
+      className="
+        max-h-[580px]
+        overflow-y-auto
+        scrollbar-hide
+        py-4
+      "
+    >
+      <div
+        className="
+          grid
+          grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5
+          gap-6
+        "
+      >
+        {skills.map((skill) => (
+          <div
+            key={skill.name}
+            className="flex flex-col items-center justify-center p-4 bg-white/5 rounded-2xl border border-white/10 shadow-md cursor-pointer transition-all transform hover:scale-105 hover:shadow-xl hover:bg-cyan-500/10"
+          >
+            <img
+              src={skill.img}
+              alt={skill.name}
+              className="w-16 h-16 object-contain mb-3 transition-transform duration-300 hover:scale-110"
+            />
+            <p className="text-white/80 font-medium text-sm md:text-base text-center">{skill.name}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
