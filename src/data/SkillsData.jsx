@@ -21,7 +21,7 @@ const skills = [
   { name: "NumPy", img: "/numpy_img.webp" },
   { name: "Pandas", img: "/pandas_img.webp" },
   { name: "DSA", img: "/dsa_img.webp" },
-  { name: "Tailwind CSS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" },
+  { name: "Tailwind CSS", img: "/tailwind-css_img.webp" },
   { name: "Bootstrap", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" },
   { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
   { name: "Expo", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/expo/expo-original.svg" },
