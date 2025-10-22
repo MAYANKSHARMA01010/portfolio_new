@@ -11,7 +11,7 @@ export default function EducationData() {
       institution: "Newton School of Technology, Rishihood University",
       duration: "2024 — 2028 (Present)",
       grade: "CGPA: 6.6 (1st Year)",
-      image: "/rishihood-university.webp", // Add your college image here
+      image: "/rishihood-university.webp",
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ export default function EducationData() {
       institution: "BLM Academy, Haldwani",
       duration: "2023",
       grade: "Percentage: 77%",
-      image: "/images/blm_12th.jpg", // Add your 12th school image
+      image: "/blm-academy-12.webp",
     },
     {
       id: 3,
@@ -27,7 +27,7 @@ export default function EducationData() {
       institution: "BLM Academy, Haldwani",
       duration: "2021",
       grade: "Percentage: 70%",
-      image: "/images/blm_10th.jpg", // Add your 10th school image
+      image: "/blm-academy-10.webp",
     },
   ];
 
@@ -45,7 +45,6 @@ export default function EducationData() {
               index % 2 === 1 ? "md:flex-row-reverse" : ""
             } items-center gap-8 bg-white/5 rounded-2xl p-6 border border-white/10 shadow-lg hover:shadow-cyan-500/10 transition-all`}
           >
-            {/* Image Section */}
             <div className="w-full md:w-1/2">
               <img
                 src={edu.image}
@@ -54,7 +53,6 @@ export default function EducationData() {
               />
             </div>
 
-            {/* Text Section */}
             <div className="w-full md:w-1/2 text-white/80">
               <h3 className="text-2xl font-bold text-white mb-2">{edu.title}</h3>
               <p className="text-lg">{edu.institution}</p>
@@ -65,7 +63,6 @@ export default function EducationData() {
         ))}
       </div>
 
-      {/* Custom Scrollbar Styles */}
       <style jsx>{`
         .custom-scrollbar::-webkit-scrollbar {
           width: 6px;
