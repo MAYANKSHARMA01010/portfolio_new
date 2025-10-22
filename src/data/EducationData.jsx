@@ -11,7 +11,7 @@ export default function EducationData() {
       institution: "Newton School of Technology, Rishihood University",
       duration: "2024 — 2028 (Present)",
       grade: "CGPA: 6.6 (1st Year)",
-      image: "/images/nst_rishihood.jpg", // Add your college image here
+      image: "/rishihood-university.webp", // Add your college image here
     },
     {
       id: 2,
