@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 
 export default function ProjectsData() {
   const [expanded, setExpanded] = useState(null);
   const [filter, setFilter] = useState("All");
+  const scrollRef = useRef(null);
 
   const filters = ["All", "Web Dev", "Mobile Dev", "Python", "Figma"];
 
@@ -74,12 +75,19 @@ export default function ProjectsData() {
   ];
 
   const filteredProjects =
-    filter === "All"
-      ? projects
-      : projects.filter((p) => p.category === filter);
+    filter === "All" ? projects : projects.filter((p) => p.category === filter);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [filter]);
 
   return (
-    <div className="w-full max-h-[80vh] overflow-y-auto pr-2 scroll-smooth custom-scrollbar">
+    <div
+      ref={scrollRef}
+      className="w-full max-h-[75vh] overflow-y-auto pr-3 scroll-smooth custom-scrollbar rounded-2xl"
+    >
       <div className="flex flex-wrap gap-3 mb-6 justify-center">
         {filters.map((f) => (
           <button
@@ -96,7 +104,7 @@ export default function ProjectsData() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-6">
         <AnimatePresence>
           {filteredProjects.map((proj, index) => (
             <motion.div
@@ -133,9 +141,7 @@ export default function ProjectsData() {
 
               <p
                 className="text-white/70 text-sm mb-3 cursor-pointer transition hover:text-white"
-                onClick={() =>
-                  setExpanded(expanded === index ? null : index)
-                }
+                onClick={() => setExpanded(expanded === index ? null : index)}
               >
                 {expanded === index
                   ? proj.desc
