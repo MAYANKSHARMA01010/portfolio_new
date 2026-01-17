@@ -4,7 +4,7 @@ Welcome to my personal portfolio website! This project serves as a digital showc
 
 ## 🚀 Usage
 
-You can view the live demo here: [Portfolio Link](https://portfolio-new-theta-two.vercel.app/) (_Replace with actual link if available_)
+You can view the live demo here: [Portfolio Link](https://mayank-sharma-personal-portfolio.vercel.app/)
 
 ## 🛠️ Tech Stack
 
