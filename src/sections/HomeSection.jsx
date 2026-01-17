@@ -11,26 +11,29 @@ import {
 } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 
-export default function HomeSection() {
-  const router = useRouter();
+const ROLES = [
+  "Frontend Developer",
+  "Backend Developer",
+  "Mobile App Developer",
+  "Web Developer",
+];
 
-  const roles = [
-    "Frontend Developer",
-    "Backend Developer",
-    "Mobile App Developer",
-    "Web Developer",
-  ];
+const SOCIAL_LINKS = [
+  { icon: <FaLinkedin />, url: "https://linkedin.com/in/mayanksharma3369" },
+  { icon: <FaGithub />, url: "https://github.com/MAYANKSHARMA01010" },
+  { icon: <FaTwitter />, url: "#" },
+  { icon: <FaInstagram />, url: "#" },
+  { icon: <FaYoutube />, url: "#" },
+];
 
-  const [currentRole, setCurrentRole] = useState(0);
+const useTypewriter = (textArray, typingSpeed = 100, pauseTime = 1500) => {
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const typingSpeed = 100;
-    const pauseTime = 1500;
-
     const handleTyping = () => {
-      const fullText = roles[currentRole];
+      const fullText = textArray[currentRoleIndex];
       setDisplayText((prev) =>
         isDeleting
           ? fullText.substring(0, prev.length - 1)
@@ -41,21 +44,59 @@ export default function HomeSection() {
         setTimeout(() => setIsDeleting(true), pauseTime);
       } else if (isDeleting && displayText === "") {
         setIsDeleting(false);
-        setCurrentRole((prev) => (prev + 1) % roles.length);
+        setCurrentRoleIndex((prev) => (prev + 1) % textArray.length);
       }
     };
 
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, currentRole, roles]);
+  }, [displayText, isDeleting, currentRoleIndex, textArray, typingSpeed, pauseTime]);
 
-  const socialLinks = [
-    { icon: <FaLinkedin />, url: "https://linkedin.com/in/mayanksharma3369" },
-    { icon: <FaGithub />, url: "https://github.com/MAYANKSHARMA01010" },
-    { icon: <FaTwitter />, url: "#" },
-    { icon: <FaInstagram />, url: "#" },
-    { icon: <FaYoutube />, url: "#" },
-  ];
+  return displayText;
+};
+
+const Particles = () => {
+  const [particles, setParticles] = useState([]);
+
+  useEffect(() => {
+    const generated = [...Array(8)].map((_, idx) => ({
+      id: idx,
+      initial: {
+        x: Math.random() * 200 - 100,
+        y: Math.random() * 200 - 100,
+      },
+      animate: {
+        x: [Math.random() * 200 - 100, Math.random() * 200 - 100],
+        y: [Math.random() * 200 - 100, Math.random() * 200 - 100],
+      },
+      duration: 4 + Math.random() * 3,
+    }));
+    setParticles(generated);
+  }, []);
+
+  return (
+    <div className="absolute -inset-8 flex justify-center items-center pointer-events-none">
+      {particles.map((p) => (
+        <motion.div
+          key={p.id}
+          className="w-2 h-2 bg-cyan-400 rounded-full opacity-50 absolute"
+          initial={p.initial}
+          animate={p.animate}
+          transition={{
+            duration: p.duration,
+            repeat: Infinity,
+            repeatType: "mirror",
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default function HomeSection() {
+  const router = useRouter();
+  const displayText = useTypewriter(ROLES);
 
   return (
     <section
@@ -69,7 +110,6 @@ export default function HomeSection() {
         loop
         className="absolute inset-0 w-full h-full object-cover"
       />
-
       <div className="absolute inset-0 bg-black/50"></div>
 
       <div className="relative max-w-6xl w-full px-6 flex flex-col md:flex-row items-center gap-12">
@@ -95,7 +135,7 @@ export default function HomeSection() {
           </p>
 
           <div className="flex items-center gap-4 mb-6">
-            {socialLinks.map((link, idx) => (
+            {SOCIAL_LINKS.map((link, idx) => (
               <a
                 key={idx}
                 href={link.url}
@@ -122,28 +162,7 @@ export default function HomeSection() {
           transition={{ duration: 0.8 }}
           className="flex-1 flex justify-center md:justify-end relative"
         >
-          <div className="absolute -inset-8 flex justify-center items-center pointer-events-none">
-            {[...Array(8)].map((_, idx) => (
-              <motion.div
-                key={idx}
-                className="w-2 h-2 bg-cyan-400 rounded-full opacity-50 absolute"
-                initial={{
-                  x: Math.random() * 200 - 100,
-                  y: Math.random() * 200 - 100,
-                }}
-                animate={{
-                  x: [Math.random() * 200 - 100, Math.random() * 200 - 100],
-                  y: [Math.random() * 200 - 100, Math.random() * 200 - 100],
-                }}
-                transition={{
-                  duration: 4 + Math.random() * 3,
-                  repeat: Infinity,
-                  repeatType: "mirror",
-                  ease: "easeInOut",
-                }}
-              />
-            ))}
-          </div>
+          <Particles />
 
           <div className="overflow-hidden w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-cyan-400 shadow-lg hover:shadow-cyan-400 transition-all duration-500 z-10">
             <img

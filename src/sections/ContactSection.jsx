@@ -59,7 +59,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-20 px-6 md:px-12 text-center bg-transparent"
+      className="relative py-20 px-6 md:px-12 text-center bg-gradient-to-b from-[#020202] to-[#080808]"
     >
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">
@@ -135,13 +135,12 @@ export default function ContactSection() {
 
           {status && (
             <p
-              className={`mt-3 text-sm ${
-                status.startsWith("✅")
-                  ? "text-green-400"
-                  : status.startsWith("⚠️")
+              className={`mt-3 text-sm ${status.startsWith("✅")
+                ? "text-green-400"
+                : status.startsWith("⚠️")
                   ? "text-yellow-400"
                   : "text-red-400"
-              }`}
+                }`}
             >
               {status}
             </p>

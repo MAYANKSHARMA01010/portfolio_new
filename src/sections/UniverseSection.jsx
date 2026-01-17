@@ -45,7 +45,7 @@ export default function UniverseSection() {
   return (
     <section
       id="universe"
-      className="relative w-full min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-gradient-to-b from-[#050715] via-[#07122a] to-[#02121b] text-white overflow-hidden"
+      className="relative w-full min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-gradient-to-b from-[#020202] to-[#080808] text-white overflow-hidden"
     >
       <h2 className="text-4xl font-bold mb-10">My Universe</h2>
 
