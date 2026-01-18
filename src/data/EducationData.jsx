@@ -10,24 +10,24 @@ export default function EducationData() {
       title: "B.Tech in Artificial Intelligence",
       institution: "Newton School of Technology, Rishihood University",
       duration: "2024 — 2028 (Present)",
-      grade: "CGPA: 6.6 (1st Year)",
+      // grade: "CGPA: 6.6 (1st Year)",
       image: "/rishihood-university.webp",
     },
     {
       id: 2,
       title: "Senior Secondary (Class XII)",
       institution: "BLM Academy, Haldwani",
-      duration: "2023",
-      grade: "Percentage: 77%",
-      image: "/blm-academy-12.webp",
+      duration: "2022 - 2023",
+      // grade: "Percentage: 77%",
+      image: "/blm-academy.webp",
     },
     {
       id: 3,
       title: "Secondary (Class X)",
       institution: "BLM Academy, Haldwani",
-      duration: "2021",
-      grade: "Percentage: 70%",
-      image: "/blm-academy-10.webp",
+      duration: "2020 - 2021",
+      // grade: "Percentage: 70%",
+      image: "/blm-academy.webp",
     },
   ];
 
@@ -61,9 +61,9 @@ export default function EducationData() {
               <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10">
                 {edu.duration}
               </span>
-              <span className="bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20 text-cyan-300">
+              {/* <span className="bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20 text-cyan-300">
                 {edu.grade}
-              </span>
+              </span> */}
             </div>
           </div>
         </motion.div>

@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
 
 export default function ExperienceData() {
   const experiences = [
@@ -12,14 +11,7 @@ export default function ExperienceData() {
       desc: "Worked on building and optimizing full-stack web applications. Contributed to frontend development using React.js and backend services with Node.js and PostgreSQL. Enhanced app performance and improved code quality through refactoring and testing.",
       date: "Apr 2025 — Jul 2025 (3 Months)",
       location: "Remote",
-    },
-    {
-      role: "Freelance Full Stack Developer",
-      company: "Self-Employed",
-      desc: "Currently working on freelance projects involving scalable and responsive web apps using React, Node.js, Prisma, and PostgreSQL. Collaborating with clients to design custom solutions, integrate APIs, and deploy applications on cloud platforms.",
-      date: "Nov 2025 — Present",
-      location: "Remote",
-    },
+    }
   ];
 
   return (
@@ -34,10 +26,8 @@ export default function ExperienceData() {
             transition={{ duration: 0.5, delay: i * 0.1 }}
             className="relative pl-8"
           >
-            {/* Timeline Dot */}
             <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-black border-4 border-cyan-400" />
 
-            {/* Content Card */}
             <div className="flex flex-col gap-2">
               <div>
                 <h3 className="text-xl font-bold text-white">{exp.role}</h3>
