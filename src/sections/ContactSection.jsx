@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -13,16 +13,18 @@ export default function ContactSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("");
     const { name, email, message } = formData;
 
     if (!name || !email || !message) {
-      setStatus("⚠️ Please fill in all fields.");
+      toast.error("Please fill in all fields.");
       return;
     }
 
-    if (!email.includes("@") || !email.includes(".")) {
-      setStatus("⚠️ Please enter a valid email.");
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (!accessKey) {
+      toast.error("Missing API Key. Check .env file.");
+      console.error("Error: NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is missing in .env");
       return;
     }
 
@@ -32,7 +34,7 @@ export default function ContactSection() {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: JSON.stringify({
-          access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
+          access_key: accessKey,
           name,
           email,
           message,
@@ -43,14 +45,18 @@ export default function ContactSection() {
         },
       });
 
-      if (res.ok) {
-        setStatus("✅ Thanks for your message!");
+      const data = await res.json();
+
+      if (data.success) {
+        toast.success("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setStatus("❌ Oops! Something went wrong.");
+        toast.error("Something went wrong. Please try again.");
+        console.error("Web3Forms Error:", data);
       }
     } catch (error) {
-      setStatus("❌ Network error. Please try again.");
+      toast.error("Network error. Please try again.");
+      console.error("Submission Error:", error);
     } finally {
       setLoading(false);
     }
@@ -61,6 +67,7 @@ export default function ContactSection() {
       id="contact"
       className="relative py-20 px-6 md:px-12 text-center bg-gradient-to-b from-[#020202] to-[#080808]"
     >
+      <Toaster position="bottom-right" reverseOrder={false} />
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">
           Get In Touch
@@ -71,7 +78,7 @@ export default function ContactSection() {
 
         <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 mb-8 shadow-md text-left space-y-2">
           <p className="text-white/80 text-sm md:text-base flex justify-center">
-            <strong className="text-cyan-400">Email:</strong>{" "}
+            <strong className="text-cyan-400">Email: </strong>
             <a
               href="mailto:sharmamayank01010@gmail.com"
               className="hover:text-cyan-300 transition"
@@ -80,7 +87,7 @@ export default function ContactSection() {
             </a>
           </p>
           <p className="text-white/80 text-sm md:text-base flex justify-center">
-            <strong className="text-cyan-400">Phone:</strong>{" "}
+            <strong className="text-cyan-400">Phone:</strong>
             <a
               href="tel:+919639398740"
               className="hover:text-cyan-300 transition"
@@ -132,19 +139,6 @@ export default function ContactSection() {
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
-
-          {status && (
-            <p
-              className={`mt-3 text-sm ${status.startsWith("✅")
-                ? "text-green-400"
-                : status.startsWith("⚠️")
-                  ? "text-yellow-400"
-                  : "text-red-400"
-                }`}
-            >
-              {status}
-            </p>
-          )}
         </form>
       </div>
     </section>
