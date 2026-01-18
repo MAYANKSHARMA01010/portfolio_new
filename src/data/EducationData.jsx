@@ -32,49 +32,42 @@ export default function EducationData() {
   ];
 
   return (
-    <div className="w-full max-h-[70vh] overflow-y-auto pr-2 scroll-smooth custom-scrollbar">
-      <div className="flex flex-col gap-10 w-full">
-        {education.map((edu, index) => (
-          <motion.div
-            key={edu.id}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className={`flex flex-col md:flex-row ${
-              index % 2 === 1 ? "md:flex-row-reverse" : ""
-            } items-center gap-8 bg-white/5 rounded-2xl p-6 border border-white/10 shadow-lg hover:shadow-cyan-500/10 transition-all`}
-          >
-            <div className="w-full md:w-1/2">
-              <img
-                src={edu.image}
-                alt={edu.title}
-                className="w-full h-64 object-cover rounded-xl border border-white/10 hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+    <div className="w-full h-full overflow-y-auto pr-2 custom-scrollbar space-y-6">
+      {education.map((edu, index) => (
+        <motion.div
+          key={edu.id}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          className="flex flex-col md:flex-row items-center gap-6 bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors"
+        >
+          <div className="w-full md:w-1/3 shrink-0">
+            <img
+              src={edu.image}
+              alt={edu.title}
+              className="w-full h-48 object-cover rounded-xl shadow-lg"
+            />
+          </div>
 
-            <div className="w-full md:w-1/2 text-white/80">
-              <h3 className="text-2xl font-bold text-white mb-2">{edu.title}</h3>
-              <p className="text-lg">{edu.institution}</p>
-              <p className="text-sm text-white/60 mt-1">{edu.duration}</p>
-              <p className="text-sm text-cyan-400 mt-1">{edu.grade}</p>
+          <div className="w-full md:w-2/3">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+              {edu.title}
+            </h3>
+            <p className="text-cyan-400 font-medium text-lg mb-2">
+              {edu.institution}
+            </p>
+            <div className="flex flex-wrap gap-4 text-sm text-white/60">
+              <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                {edu.duration}
+              </span>
+              <span className="bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20 text-cyan-300">
+                {edu.grade}
+              </span>
             </div>
-          </motion.div>
-        ))}
-      </div>
-
-      <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #22d3ee80, #22d3ee20);
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #22d3ee;
-        }
-      `}</style>
+          </div>
+        </motion.div>
+      ))}
     </div>
   );
 }

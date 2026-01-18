@@ -86,114 +86,98 @@ export default function ProjectsData() {
   return (
     <div
       ref={scrollRef}
-      className="w-full max-h-[75vh] overflow-y-auto pr-3 scroll-smooth custom-scrollbar rounded-2xl"
+      className="w-full h-full overflow-y-auto pr-2 custom-scrollbar"
     >
-      <div className="flex flex-wrap gap-3 mb-6 justify-center">
+      {/* Category Filter */}
+      <div className="flex flex-wrap gap-2 mb-8 justify-center">
         {filters.map((f) => (
           <button
             key={f}
             onClick={() => setFilter(f)}
-            className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
-              filter === f
-                ? "bg-cyan-500 text-black shadow-md"
-                : "bg-white/10 text-white/70 hover:bg-white/20"
-            }`}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${filter === f
+                ? "bg-cyan-500 text-black shadow-lg shadow-cyan-500/20"
+                : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white"
+              }`}
           >
             {f}
           </button>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-6">
-        <AnimatePresence>
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-10">
+        <AnimatePresence mode="popLayout">
           {filteredProjects.map((proj, index) => (
             <motion.div
+              layout
               key={proj.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 30 }}
-              transition={{ duration: 0.5 }}
-              className="group bg-white/5 border border-white/10 rounded-2xl p-4 shadow-lg hover:shadow-cyan-500/20 transition-all hover:scale-[1.02]"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-500/30 transition-colors"
             >
-              <div className="relative overflow-hidden rounded-xl mb-4">
-                <motion.video
+              {/* Media Section */}
+              <div className="relative h-48 bg-black/50 overflow-hidden">
+                <video
                   src={proj.video}
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className="w-full h-56 object-cover rounded-xl"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
+                  className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                 />
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  className="absolute inset-0 bg-black/50 flex items-center justify-center text-white text-lg font-semibold rounded-xl"
-                >
-                  View Project ✨
-                </motion.div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                  <h3 className="text-xl font-bold text-white leading-none">
+                    {proj.title}
+                  </h3>
+                </div>
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-1">
-                {proj.title}
-              </h3>
+              {/* Content Section */}
+              <div className="p-6">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {proj.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-xs font-medium rounded bg-white/5 text-white/50 border border-white/5"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
 
-              <p
-                className="text-white/70 text-sm mb-3 cursor-pointer transition hover:text-white"
-                onClick={() => setExpanded(expanded === index ? null : index)}
-              >
-                {expanded === index
-                  ? proj.desc
-                  : proj.shortDesc + " (Click to read more...)"}
-              </p>
+                <p className="text-white/70 text-sm mb-6 line-clamp-3">
+                  {proj.desc}
+                </p>
 
-              <div className="flex flex-wrap gap-2 mb-3">
-                {proj.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 text-xs rounded-md bg-cyan-500/10 border border-cyan-400/20 text-cyan-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-3">
-                <a
-                  href={proj.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 bg-white/10 rounded-lg text-sm text-white/80 hover:bg-cyan-500/90 hover:text-black transition"
-                >
-                  <Github size={16} /> Repo
-                </a>
-                <a
-                  href={proj.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 bg-white/10 rounded-lg text-sm text-white/80 hover:bg-cyan-500/90 hover:text-black transition"
-                >
-                  <ExternalLink size={16} /> Live
-                </a>
+                <div className="flex items-center gap-3 mt-auto">
+                  {proj.repo !== "#" && (
+                    <a
+                      href={proj.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/80 text-sm transition-colors"
+                    >
+                      <Github size={16} /> Code
+                    </a>
+                  )}
+                  {proj.live !== "#" && (
+                    <a
+                      href={proj.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 text-sm transition-colors"
+                    >
+                      <ExternalLink size={16} /> Live Demo
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
         </AnimatePresence>
       </div>
-
-      <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #22d3ee80, #22d3ee20);
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #22d3ee;
-        }
-      `}</style>
     </div>
   );
 }

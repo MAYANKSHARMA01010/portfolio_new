@@ -23,57 +23,37 @@ export default function ExperienceData() {
   ];
 
   return (
-    <div className="w-full max-h-[85vh] overflow-y-auto pr-3 custom-scrollbar scroll-smooth rounded-2xl">
-      <motion.h2
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-2xl font-bold text-cyan-400 mb-6 text-center"
-      >
-        Professional Experience
-      </motion.h2>
-
-      <div className="relative border-l border-white/10 space-y-8 pl-6">
+    <div className="w-full h-full overflow-y-auto pr-2 custom-scrollbar pl-4">
+      <div className="relative border-l-2 border-white/10 space-y-12">
         {experiences.map((exp, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="relative"
+            className="relative pl-8"
           >
-            <div className="absolute -left-[10px] top-1 w-4 h-4 bg-cyan-400 rounded-full border-4 border-black" />
+            {/* Timeline Dot */}
+            <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-black border-4 border-cyan-400" />
 
-            <div className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 shadow-md transition-all hover:shadow-cyan-500/20">
-              <div className="flex items-center justify-between mb-1">
-                <h3 className="text-lg font-semibold text-white">
-                  {exp.role}
-                </h3>
-                <Briefcase size={18} className="text-cyan-400" />
+            {/* Content Card */}
+            <div className="flex flex-col gap-2">
+              <div>
+                <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+                <p className="text-cyan-400 font-medium">
+                  {exp.company} <span className="text-white/40">•</span>{" "}
+                  <span className="text-white/60">{exp.location}</span>
+                </p>
+                <p className="text-sm text-white/40 mt-1">{exp.date}</p>
               </div>
-              <p className="text-white/80 text-sm font-medium">
-                {exp.company} — <span className="text-white/60">{exp.location}</span>
+              <p className="text-white/70 leading-relaxed bg-white/5 p-4 rounded-xl border border-white/10 mt-2">
+                {exp.desc}
               </p>
-              <p className="text-xs text-white/50 mb-2">{exp.date}</p>
-              <p className="text-white/70 text-sm leading-relaxed">{exp.desc}</p>
             </div>
           </motion.div>
         ))}
       </div>
-
-      <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #22d3ee80, #22d3ee20);
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #22d3ee;
-        }
-      `}</style>
     </div>
   );
 }

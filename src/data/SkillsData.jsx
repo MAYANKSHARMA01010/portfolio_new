@@ -29,32 +29,23 @@ const skills = [
 
 export default function SkillsData() {
   return (
-    <div
-      className="
-        max-h-[580px]
-        overflow-y-auto
-        scrollbar-hide
-        py-4
-      "
-    >
-      <div
-        className="
-          grid
-          grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5
-          gap-6
-        "
-      >
-        {skills.map((skill) => (
+    <div className="w-full h-full overflow-y-auto pr-2 custom-scrollbar">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        {skills.map((skill, index) => (
           <div
             key={skill.name}
-            className="flex flex-col items-center justify-center p-4 bg-white/5 rounded-2xl border border-white/10 shadow-md cursor-pointer transition-all transform hover:scale-105 hover:shadow-xl hover:bg-cyan-500/10"
+            className="group flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all hover:-translate-y-1 hover:border-cyan-500/30"
           >
-            <img
-              src={skill.img}
-              alt={skill.name}
-              className="w-16 h-16 object-contain mb-3 transition-transform duration-300 hover:scale-110"
-            />
-            <p className="text-white/80 font-medium text-sm md:text-base text-center">{skill.name}</p>
+            <div className="relative w-16 h-16 mb-4 flex items-center justify-center p-2 bg-white/5 rounded-xl group-hover:scale-110 transition-transform">
+              <img
+                src={skill.img}
+                alt={skill.name}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <p className="text-white/70 font-medium text-sm text-center group-hover:text-white transition-colors">
+              {skill.name}
+            </p>
           </div>
         ))}
       </div>
