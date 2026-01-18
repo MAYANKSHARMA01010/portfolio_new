@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 import { projects } from "../lib/allProjectData";
 
@@ -26,7 +27,7 @@ const ProjectCard = React.memo(({ proj }) => {
       transition={{ duration: 0.3 }}
       className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-500/30 transition-colors"
     >
-      <div className="relative h-48 bg-black/50 overflow-hidden">
+      <Link href={`/project/${proj.slug}`} className="block relative h-48 bg-black/50 overflow-hidden cursor-pointer">
         {primaryMedia && primaryMedia.type === "video" ? (
           <video
             src={primaryMedia.src}
@@ -42,11 +43,11 @@ const ProjectCard = React.memo(({ proj }) => {
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-          <h3 className="text-xl font-bold text-white leading-none">
+          <h3 className="text-xl font-bold text-white leading-none group-hover:text-cyan-400 transition-colors">
             {proj.title}
           </h3>
         </div>
-      </div>
+      </Link>
 
       <div className="p-6">
         <div className="flex flex-wrap gap-2 mb-4">
@@ -146,8 +147,8 @@ export default function ProjectsData() {
             key={f}
             onClick={() => setFilter(f)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${filter === f
-                ? "bg-cyan-500 text-black shadow-lg shadow-cyan-500/20"
-                : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white"
+              ? "bg-cyan-500 text-black shadow-lg shadow-cyan-500/20"
+              : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white"
               }`}
           >
             {f}
