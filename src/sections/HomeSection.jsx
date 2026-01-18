@@ -10,6 +10,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const ROLES = [
   "Frontend Developer",
@@ -55,7 +56,7 @@ const useTypewriter = (textArray, typingSpeed = 100, pauseTime = 1500) => {
   return displayText;
 };
 
-const Particles = () => {
+const Particles = React.memo(() => {
   const [particles, setParticles] = useState([]);
 
   useEffect(() => {
@@ -92,7 +93,9 @@ const Particles = () => {
       ))}
     </div>
   );
-};
+});
+
+Particles.displayName = "Particles";
 
 export default function HomeSection() {
   const router = useRouter();
@@ -164,11 +167,13 @@ export default function HomeSection() {
         >
           <Particles />
 
-          <div className="overflow-hidden w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-cyan-400 shadow-lg hover:shadow-cyan-400 transition-all duration-500 z-10">
-            <img
+          <div className="overflow-hidden w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-cyan-400 shadow-lg hover:shadow-cyan-400 transition-all duration-500 z-10 relative">
+            <Image
               src="/ProfilePhoto.jpeg"
               alt="Mayank Sharma"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 hover:scale-105 rounded-full"
+              fill
+              className="object-cover grayscale hover:grayscale-0 transition-all duration-500 hover:scale-105"
+              priority
             />
           </div>
         </motion.div>
