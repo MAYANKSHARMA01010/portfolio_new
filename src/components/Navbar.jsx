@@ -9,8 +9,16 @@ export default function Navbar() {
   const navItems = [
     { id: "home", label: "Home" },
     { id: "universe", label: "Universe" },
-    { id: "orbit", label: "Orbit" },
+    { id: "contact", label: "Contact" },
   ];
+
+  const scrollToSection = (id) => {
+    setActive(id);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <motion.nav
@@ -24,10 +32,9 @@ export default function Navbar() {
           {navItems.map((item) => (
             <motion.li key={item.id} className="relative">
               <button
-                onClick={() => setActive(item.id)}
-                className={`px-2 py-1 transition-colors ${
-                  active === item.id ? "text-cyan-400" : "hover:text-cyan-300"
-                }`}
+                onClick={() => scrollToSection(item.id)}
+                className={`px-2 py-1 transition-colors ${active === item.id ? "text-cyan-400" : "hover:text-cyan-300"
+                  }`}
               >
                 {item.label}
               </button>
