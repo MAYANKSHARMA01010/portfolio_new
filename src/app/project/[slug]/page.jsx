@@ -25,7 +25,7 @@ export default function ProjectPage({ params }) {
 
             <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between backdrop-blur-md bg-black/50 border-b border-white/5">
                 <Link
-                    href="/"
+                    href="/universe/projects"
                     className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
                 >
                     <ArrowLeft size={20} />

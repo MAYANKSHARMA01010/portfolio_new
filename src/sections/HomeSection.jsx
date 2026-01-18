@@ -151,12 +151,22 @@ export default function HomeSection() {
             ))}
           </div>
 
-          <button
-            onClick={() => router.push("/about")}
-            className="px-6 py-2 rounded-full bg-cyan-500/90 hover:bg-cyan-400 transition-transform transform hover:scale-105 text-black font-semibold shadow-lg"
-          >
-            Know More About Me
-          </button>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => router.push("/about")}
+              className="px-6 py-2 rounded-full bg-cyan-500/90 hover:bg-cyan-400 transition-transform transform hover:scale-105 text-black font-semibold shadow-lg"
+            >
+              Know More About Me
+            </button>
+            <a
+              href="/MayankSharmaResume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 rounded-full border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-all transform hover:scale-105 font-semibold shadow-lg"
+            >
+              Resume
+            </a>
+          </div>
         </motion.div>
 
         <motion.div
