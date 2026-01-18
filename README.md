@@ -1,53 +1,64 @@
 # Mayank Sharma - Personal Portfolio
 
-Welcome to my personal portfolio website! This project serves as a digital showcase of my work, skills, and professional journey as a developer. It features a modern, interactive, and space-themed design to provide an engaging user experience.
+Welcome to my personal portfolio website! This project is a digital showcase of my work, skills, and professional journey as a developer. It features a modern, space-themed design with smooth animations and interactivity to provide an immersive user experience.
 
-## 🚀 Usage
+## 🚀 Live Demo
 
 You can view the live demo here: [Portfolio Link](https://mayank-sharma-personal-portfolio.vercel.app/)
 
 ## 🛠️ Tech Stack
 
-This project is built using the latest web technologies to ensure performance, scalability, and a premium feel.
+This project is built using the latest web technologies to ensure superior performance, scalability, and a premium aesthetic.
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router, Turbopack)
+- **Library**: [React 19](https://react.dev/)
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Notifications**: [React Hot Toast](https://react-hot-toast.com/)
 - **Icons**: [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
 - **Fonts**: [Geist](https://vercel.com/font) (Optimized with `next/font`)
-- **Package Manager**: NPM
+- **Package Manager**: pnpm (recommended) / npm
 
-## ✨ Features
+## ✨ Key Features
 
-- **Responsive Design**: Fully optimized for desktops, tablets, and mobile devices.
-- **Dynamic "Universe" Section**: An interactive hub showcasing Education, Skills, Projects, and Experience.
-- **Hero Section**: Engaging typing effect and floating particle animations.
-- **Contact Form**: Integrated with Web3Forms for seamless email communication.
-- **Modern Aesthetic**: Dark mode, glassmorphism, and smooth transitions.
-- **Optimized Performance**: Leveraging Next.js server components and Turbopack.
+- **Dynamic Project Pages**: Comprehensive detail pages for each project (e.g., `/project/cosmoshop`) with simplified routing.
+- **Infinite Scroll Projects**: Optimized project grid with lazy loading and memoization for high performance.
+- **Interactive "Universe"**: A central hub navigating to Education, Skills, Projects, and Experience sections.
+- **Immersive Animations**:
+  - Particle effects and floating elements.
+  - Smooth typing effects.
+  - Page transitions and scroll animations.
+- **Resume Download**: Easily accessible resume download button.
+- **Contact Form**: Functional contact form powered by Web3Forms with toast notifications.
+- **Responsive & Modern**: Fully responsive glassmorphism design optimized for all devices.
 
 ## 📂 Project Structure
 
 ```bash
-src/
-├── app/              # App Router pages and layout
-│   ├── layout.jsx    # Root layout with font and metadata configuration
-│   ├── page.jsx      # Main entry point rendering sections
-│   └── globals.css   # Global styles and Tailwind imports
-├── components/       # Reusable UI components (Navbar, Footer, etc.)
-├── sections/         # Main page sections (Home, Universe, Contact)
-├── data/             # Static data files for portfolio content
-└── pages/            # Additional pages (e.g., About)
+.
+├── public/               # Static assets (images, videos, resume)
+└── src/
+    ├── app/              # App Router directory
+    │   ├── project/      # Dynamic project details ([slug])
+    │   ├── universe/     # Universe section routes
+    │   ├── globals.css   # Global styles
+    │   ├── layout.jsx    # Root layout
+    │   └── page.jsx      # Main entry point
+    ├── components/       # UI Components (Navbar, Footer, etc.)
+    ├── data/             # Data components (SkillsData, ProjectsData)
+    ├── lib/              # Centralized data libraries (allProjectData)
+    ├── pages/            # Pages Router (About page)
+    └── sections/         # Feature sections (Home, Contact, Universe)
 ```
 
 ## ⚡ Getting Started
 
-Follow these steps to set up the project locally on your machine.
+Follow these steps to set up the project locally.
 
 ### Prerequisites
 
-- Node.js (v18.17 or later recommended)
-- npm or yarn
+- Node.js (v18.17 or later)
+- pnpm (recommended) or npm
 
 ### Installation
 
@@ -61,27 +72,37 @@ Follow these steps to set up the project locally on your machine.
 2.  **Install dependencies**:
 
     ```bash
-    npm install
+    pnpm install
     # or
-    yarn install
+    npm install
     ```
 
-3.  **Run the development server**:
+3.  **Environment Setup**:
+    Create a `.env` file in the root directory and add your Web3Forms key:
+
+    ```env
+    NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key_here
+    ```
+
+4.  **Run the development server**:
 
     ```bash
+    pnpm run dev
+    # or
     npm run dev
     ```
 
-4.  **Open in Browser**:
-    Visit [http://localhost:3000](http://localhost:3000) to see the application running.
+5.  **Open in Browser**:
+    Visit [http://localhost:3000](http://localhost:3000) to view the application.
 
 ## 🚀 Deployment
 
-The easiest way to deploy this Next.js app is using [Vercel](https://vercel.com/), the creators of Next.js.
+The project is optimized for deployment on [Vercel](https://vercel.com/).
 
 1.  Push your code to a GitHub repository.
 2.  Import the project into Vercel.
-3.  Vercel will detect Next.js and deploy automatically.
+3.  Add the `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` environment variable in Vercel settings.
+4.  Deploy!
 
 ## 📬 Contact
 
