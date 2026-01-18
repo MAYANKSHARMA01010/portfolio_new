@@ -73,19 +73,19 @@ export default function ContactSection() {
           <p className="text-white/80 text-sm md:text-base flex justify-center">
             <strong className="text-cyan-400">Email:</strong>{" "}
             <a
-              href="mailto:mayanksharma01010@gmail.com"
+              href="mailto:sharmamayank01010@gmail.com"
               className="hover:text-cyan-300 transition"
             >
-              mayanksharma01010@gmail.com
+              sharmamayank01010@gmail.com
             </a>
           </p>
           <p className="text-white/80 text-sm md:text-base flex justify-center">
             <strong className="text-cyan-400">Phone:</strong>{" "}
             <a
-              href="tel:+919876543210"
+              href="tel:+919639398740"
               className="hover:text-cyan-300 transition"
             >
-              +91 98765 43210
+              +91 96393 98740
             </a>
           </p>
         </div>

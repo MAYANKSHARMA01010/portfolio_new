@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
-    "start": "next start",
-    "serve:watch": "nodemon --watch pages --watch components --ext js,jsx,ts,tsx --exec 'npm run build && npm start'"
+    "start": "next start"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",
@@ -18,7 +17,6 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "nodemon": "^3.1.10",
     "tailwindcss": "^4"
   }
 }
