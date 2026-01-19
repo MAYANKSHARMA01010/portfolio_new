@@ -10,7 +10,7 @@ You can view the live demo here: [Portfolio Link](https://mayank-sharma-personal
 
 This project is built using the latest web technologies to ensure superior performance, scalability, and a premium aesthetic.
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router, Turbopack)
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
 - **Library**: [React 19](https://react.dev/)
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
