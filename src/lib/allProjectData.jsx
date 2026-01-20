@@ -230,4 +230,35 @@ export const projects = [
         live: "#",
         category: "Web Dev",
     },
+    {
+        slug: "tic-tac-toe",
+        title: "Tic-Tac-Toe JS",
+        shortDesc: "Classic Tic-Tac-Toe game with theme support.",
+        overview:
+            "A feature-rich Tic-Tac-Toe game built with vanilla JavaScript. It includes a dark/light theme toggle, sound effects for moves, and specific win/draw animations. The game logic handles win detection and state management efficiently.",
+        media: [
+            { type: "video", src: "/ticTacToe/gamePLayVideo.mp4", title: "Gameplay Demo" },
+            { type: "image", src: "/ticTacToe/lightMode.png", title: "Light Theme" },
+            { type: "image", src: "/ticTacToe/darkMode.png", title: "Dark Theme" },
+            { type: "image", src: "/ticTacToe/XWon.png", title: "X Won" },
+            { type: "image", src: "/ticTacToe/OWon.png", title: "O Won" },
+            { type: "image", src: "/ticTacToe/Draw.png", title: "Draw" }
+        ],
+        techStack: {
+            frontend: ["HTML5", "CSS3", "JavaScript"],
+            deployment: ["Vercel"],
+        },
+        features: [
+            "Dark/Light Theme Toggle",
+            "Win & Draw Detection",
+            "Sound Effects",
+            "Responsive Design",
+            "Winning Animations",
+        ],
+        backendArchitecture: {},
+        apiEndpoints: [],
+        github: "https://github.com/MAYANKSHARMA01010/Tic-Tac-Toe-JS",
+        live: "https://tic-tac-toe-js-basic.vercel.app",
+        category: "Web Dev",
+    },
 ];
