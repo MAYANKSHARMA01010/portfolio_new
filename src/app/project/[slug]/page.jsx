@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Github, ExternalLink, Server, Database, Layers, Code, Play } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import ProjectGallery from "../../../components/ProjectGallery";
 
 export default function ProjectPage({ params }) {
     const router = useRouter();
@@ -16,8 +17,6 @@ export default function ProjectPage({ params }) {
     if (!project) {
         return notFound();
     }
-
-    const primaryMedia = project.media[0];
 
     return (
         <div className="min-h-screen bg-[#050505] text-white selection:bg-cyan-500/30">
@@ -38,8 +37,8 @@ export default function ProjectPage({ params }) {
 
             <main className="relative z-10 pt-24 px-6 pb-20 max-w-7xl mx-auto">
 
-                <div className="flex flex-col lg:flex-row gap-12 mb-20">
-                    <div className="flex-1 space-y-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 items-start">
+                    <div className="lg:col-span-4 space-y-8 order-2 lg:order-1">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -48,10 +47,10 @@ export default function ProjectPage({ params }) {
                             <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold text-cyan-400 bg-cyan-900/30 border border-cyan-800 rounded-full tracking-wide uppercase">
                                 {project.category}
                             </div>
-                            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+                            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
                                 {project.title}
                             </h1>
-                            <p className="text-xl md:text-2xl text-white/70 leading-relaxed font-light">
+                            <p className="text-lg text-white/70 leading-relaxed font-light">
                                 {project.shortDesc}
                             </p>
                         </motion.div>
@@ -60,16 +59,16 @@ export default function ProjectPage({ params }) {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.3 }}
-                            className="flex items-center gap-4"
+                            className="flex flex-wrap gap-4"
                         >
                             {project.github !== "#" && (
                                 <a
                                     href={project.github}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-all font-medium group"
+                                    className="flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-all font-medium group text-sm"
                                 >
-                                    <Github size={20} className="group-hover:rotate-12 transition-transform" />
+                                    <Github size={18} className="group-hover:rotate-12 transition-transform" />
                                     View Source
                                 </a>
                             )}
@@ -78,38 +77,17 @@ export default function ProjectPage({ params }) {
                                     href={project.live}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 px-6 py-3 rounded-full bg-cyan-500 hover:bg-cyan-400 text-black font-bold shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all transform hover:-translate-y-1"
+                                    className="flex items-center gap-2 px-5 py-3 rounded-full bg-cyan-500 hover:bg-cyan-400 text-black font-bold shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all transform hover:-translate-y-1 text-sm"
                                 >
-                                    <ExternalLink size={20} />
+                                    <ExternalLink size={18} />
                                     Live Demo
                                 </a>
                             )}
                         </motion.div>
                     </div>
 
-                    <div className="flex-1">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.8 }}
-                            className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-cyan-900/20 group"
-                        >
-                            {primaryMedia && primaryMedia.type === "video" ? (
-                                <video
-                                    src={primaryMedia.src}
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                    className="w-full h-full object-cover"
-                                />
-                            ) : (
-                                <div className="w-full h-full bg-white/5 flex items-center justify-center">
-                                    <Play size={48} className="text-white/20" />
-                                </div>
-                            )}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-                        </motion.div>
+                    <div className="lg:col-span-8 order-1 lg:order-2">
+                        <ProjectGallery media={project.media || []} />
                     </div>
                 </div>
 
@@ -160,9 +138,9 @@ export default function ProjectPage({ params }) {
                                                 <tr key={i} className="hover:bg-white/5 transition-colors">
                                                     <td className="p-4">
                                                         <span className={`px-2 py-1 rounded text-xs font-bold ${ep.method === 'GET' ? 'bg-blue-500/20 text-blue-400' :
-                                                                ep.method === 'POST' ? 'bg-green-500/20 text-green-400' :
-                                                                    ep.method === 'DELETE' ? 'bg-red-500/20 text-red-400' :
-                                                                        'bg-yellow-500/20 text-yellow-400'
+                                                            ep.method === 'POST' ? 'bg-green-500/20 text-green-400' :
+                                                                ep.method === 'DELETE' ? 'bg-red-500/20 text-red-400' :
+                                                                    'bg-yellow-500/20 text-yellow-400'
                                                             }`}>
                                                             {ep.method}
                                                         </span>
