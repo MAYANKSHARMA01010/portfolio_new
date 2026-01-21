@@ -288,4 +288,32 @@ export const projects = [
         live: "https://calculator-js-basic.vercel.app",
         category: "Web Dev",
     },
+    {
+        slug: "nextech-solutions",
+        title: "NexTech Solutions",
+        shortDesc: "Premium technology agency website with modern UI.",
+        overview:
+            "A high-performance, fully responsive agency website built with semantic HTML and modern CSS. Features include a dynamic light/dark theme toggle, glassmorphism effects, smooth scroll animations, and a polished mobile experience. Designed to showcase a professional, tech-forward aesthetic without relying on heavy frameworks.",
+        media: [
+            { type: "video", src: "/nextech/demoVideo.mp4", title: "Site Tour" },
+            { type: "image", src: "/nextech/darkMode.png", title: "Dark Theme" },
+            { type: "image", src: "/nextech/lightMode.png", title: "Light Theme" }
+        ],
+        techStack: {
+            frontend: ["HTML5", "CSS3", "JavaScript"],
+            deployment: ["Vercel"],
+        },
+        features: [
+            "Light/Dark Theme Toggle",
+            "Glassmorphism UI",
+            "Fully Responsive Layout",
+            "Smooth Scroll Animations",
+            "Semantic HTML & CSS Grid"
+        ],
+        backendArchitecture: {},
+        apiEndpoints: [],
+        github: "https://github.com/MAYANKSHARMA01010/NexTech-Clone",
+        live: "https://nex-tech-one.vercel.app",
+        category: "Web Dev",
+    },
 ];
