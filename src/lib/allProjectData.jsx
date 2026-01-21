@@ -261,4 +261,31 @@ export const projects = [
         live: "https://tic-tac-toe-js-basic.vercel.app",
         category: "Web Dev",
     },
+    {
+        slug: "calculator-js",
+        title: "Calculator JS",
+        shortDesc: "Scientific calculator with dark/light mode.",
+        overview:
+            "A feature-rich calculator built with HTML, CSS, and JavaScript. It supports standard arithmetic operations and includes a dark/light theme toggle for better user experience.",
+        media: [
+            { type: "video", src: "/calculatorJS/demoVideo.mp4", title: "Demo" },
+            { type: "image", src: "/calculatorJS/lightMode.png", title: "Light Mode" },
+            { type: "image", src: "/calculatorJS/darkMode.png", title: "Dark Mode" },
+        ],
+        techStack: {
+            frontend: ["HTML5", "CSS3", "JavaScript"],
+            deployment: ["Vercel"],
+        },
+        features: [
+            "Dark/Light Theme Toggle",
+            "Standard Arithmetic Operations",
+            "Responsive Design",
+            "Clean UI",
+        ],
+        backendArchitecture: {},
+        apiEndpoints: [],
+        github: "https://github.com/MAYANKSHARMA01010/Calculator-JS",
+        live: "https://calculator-js-basic.vercel.app",
+        category: "Web Dev",
+    },
 ];
