@@ -210,7 +210,6 @@ export const projects = [
         live: "#",
         category: "Python",
     },
-
     {
         slug: "auth-system",
         title: "Auth System",
@@ -237,7 +236,7 @@ export const projects = [
         overview:
             "A feature-rich Tic-Tac-Toe game built with vanilla JavaScript. It includes a dark/light theme toggle, sound effects for moves, and specific win/draw animations. The game logic handles win detection and state management efficiently.",
         media: [
-            { type: "video", src: "/ticTacToe/gamePLayVideo.mp4", title: "Gameplay Demo" },
+            // { type: "video", src: "/ticTacToe/gamePLayVideo.mp4", title: "Gameplay Demo" },
             { type: "image", src: "/ticTacToe/lightMode.png", title: "Light Theme" },
             { type: "image", src: "/ticTacToe/darkMode.png", title: "Dark Theme" },
             { type: "image", src: "/ticTacToe/XWon.png", title: "X Won" },
@@ -268,7 +267,7 @@ export const projects = [
         overview:
             "A feature-rich calculator built with HTML, CSS, and JavaScript. It supports standard arithmetic operations and includes a dark/light theme toggle for better user experience.",
         media: [
-            { type: "video", src: "/calculatorJS/demoVideo.mp4", title: "Demo" },
+            // { type: "video", src: "/calculatorJS/demoVideo.mp4", title: "Demo" },
             { type: "image", src: "/calculatorJS/lightMode.png", title: "Light Mode" },
             { type: "image", src: "/calculatorJS/darkMode.png", title: "Dark Mode" },
         ],
@@ -295,7 +294,7 @@ export const projects = [
         overview:
             "A high-performance, fully responsive agency website built with semantic HTML and modern CSS. Features include a dynamic light/dark theme toggle, glassmorphism effects, smooth scroll animations, and a polished mobile experience. Designed to showcase a professional, tech-forward aesthetic without relying on heavy frameworks.",
         media: [
-            { type: "video", src: "/nextech/demoVideo.mp4", title: "Site Tour" },
+            // { type: "video", src: "/nextech/demoVideo.mp4", title: "Site Tour" },
             { type: "image", src: "/nextech/darkMode.png", title: "Dark Theme" },
             { type: "image", src: "/nextech/lightMode.png", title: "Light Theme" }
         ],
