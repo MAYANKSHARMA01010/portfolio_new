@@ -288,7 +288,7 @@ export const projects = [
         category: "Web Dev",
     },
     {
-        slug: "nextech-solutions",
+        slug: "nextech-solutions", 
         title: "NexTech Solutions",
         shortDesc: "Premium technology agency website with modern UI.",
         overview:
@@ -313,6 +313,49 @@ export const projects = [
         apiEndpoints: [],
         github: "https://github.com/MAYANKSHARMA01010/NexTech-Clone",
         live: "https://nex-tech-one.vercel.app",
+        category: "Web Dev",
+    },
+    {
+        slug: "groway",
+        title: "GroWay",
+        shortDesc: "Interactive career growth & personal assessment platform.",
+        overview:
+            "GroWay is a full-stack assessment platform that evaluates personal and professional goals through dynamic questionnaires. It analyzes user responses to provide targeted insights into professional advantages, potential hurdles, and personalized growth strategies.",
+        media: [
+            // { type: "video", src: "/videos/groway.mp4", title: "Project Overview" },
+            { type: "image", src: "/images/groway_header.png", title: "Header Section" },
+            { type: "image", src: "/images/groway_fields.png", title: "Goal Selection" },
+            { type: "image", src: "/images/groway_test.png", title: "Assessment Test" },
+            { type: "image", src: "/images/groway_pricing.png", title: "Pricing Section" },
+            { type: "image", src: "/images/groway_contact.png", title: "Contact Section" }
+        ],
+        techStack: {
+            frontend: ["Next.js", "React", "TypeScript", "Vanilla CSS", "Framer Motion"],
+            backend: ["Node.js", "Express"],
+            orm: ["Prisma"],
+            database: ["PostgreSQL"],
+            deployment: ["Vercel", "Render", "Prisma.io"],
+            notifications: ["React Hot Toast"],
+            packageManager: ["npm"]
+        },
+        features: [
+            "Dynamic profession-based questionnaires",
+            "JWT-based global session management",
+            "Automated feedback & growth analysis",
+            "Responsive & glassmorphic UI design",
+            "Custom toast system with visibility limits"
+        ],
+        backendArchitecture: { 
+            pattern: "MVC",
+            folders: ["controllers/", "routes/", "middlewares/", "configs/", "prisma/"],
+        },
+        apiEndpoints: [
+            { method: "POST", endpoint: "/api/users/signup", desc: "User registration" },
+            { method: "POST", endpoint: "/api/users/login", desc: "User authentication" },
+            { method: "GET", endpoint: "/api/users/protected", desc: "Fetch user-specific data" },
+        ],
+        github: "https://github.com/MAYANKSHARMA01010/GROWAY",
+        live: "https://groway.vercel.app",
         category: "Web Dev",
     },
 ];

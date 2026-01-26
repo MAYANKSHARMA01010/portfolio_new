@@ -50,11 +50,10 @@ export default function ProjectsData() {
           <button
             key={f}
             onClick={() => setFilter(f)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-              filter === f
-                ? "bg-cyan-500 text-black shadow-lg shadow-cyan-500/20"
-                : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white"
-            }`}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition ${filter === f
+              ? "bg-cyan-500 text-black shadow-lg shadow-cyan-500/20"
+              : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white"
+              }`}
           >
             {f}
           </button>
