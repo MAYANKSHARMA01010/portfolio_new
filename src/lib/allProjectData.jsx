@@ -322,12 +322,12 @@ export const projects = [
         overview:
             "GroWay is a full-stack assessment platform that evaluates personal and professional goals through dynamic questionnaires. It analyzes user responses to provide targeted insights into professional advantages, potential hurdles, and personalized growth strategies.",
         media: [
-            // { type: "video", src: "/videos/groway.mp4", title: "Project Overview" },
-            { type: "image", src: "/images/groway_header.png", title: "Header Section" },
-            { type: "image", src: "/images/groway_fields.png", title: "Goal Selection" },
-            { type: "image", src: "/images/groway_test.png", title: "Assessment Test" },
-            { type: "image", src: "/images/groway_pricing.png", title: "Pricing Section" },
-            { type: "image", src: "/images/groway_contact.png", title: "Contact Section" }
+            // { type: "video", src: "/groway/groway.mp4", title: "Project Overview" },
+            { type: "image", src: "/groway/header.png", title: "Header Section" },
+            { type: "image", src: "/groway/contact.png", title: "Contact Section" },
+            { type: "image", src: "/groway/pricing.png", title: "Pricing Section" },
+            { type: "image", src: "/groway/test.png", title: "Assessment Test" },
+            { type: "image", src: "/groway/fields.png", title: "Goal Selection" },
         ],
         techStack: {
             frontend: ["Next.js", "React", "TypeScript", "Vanilla CSS", "Framer Motion"],
