@@ -288,7 +288,7 @@ export const projects = [
         category: "Web Dev",
     },
     {
-        slug: "nextech-solutions", 
+        slug: "nextech-solutions",
         title: "NexTech Solutions",
         shortDesc: "Premium technology agency website with modern UI.",
         overview:
@@ -334,6 +334,7 @@ export const projects = [
             backend: ["Node.js", "Express"],
             orm: ["Prisma"],
             database: ["PostgreSQL"],
+            authentication: ["JWT", "bcrypt"],
             deployment: ["Vercel", "Render", "Prisma.io"],
             notifications: ["React Hot Toast"],
             packageManager: ["npm"]
@@ -345,7 +346,7 @@ export const projects = [
             "Responsive & glassmorphic UI design",
             "Custom toast system with visibility limits"
         ],
-        backendArchitecture: { 
+        backendArchitecture: {
             pattern: "MVC",
             folders: ["controllers/", "routes/", "middlewares/", "configs/", "prisma/"],
         },
@@ -358,4 +359,64 @@ export const projects = [
         live: "https://groway.vercel.app",
         category: "Web Dev",
     },
+    {
+        slug: "campus-connect",
+        title: "Campus Connect",
+        shortDesc: "Full-stack mobile event management platform for campus communities.",
+        overview:
+            "Campus Connect is a production-ready mobile application that enables students to discover, host, and manage campus events seamlessly. Built with React Native (Expo) and Node.js, it features role-based access control with separate interfaces for regular users and administrators. The platform includes secure JWT authentication, multi-image upload support, real-time event management, and a comprehensive admin dashboard for event approvals.",
+        media: [
+            { type: "video", src: "/videos/campus_connect_demo.mp4", title: "Full App Demo" },
+            { type: "image", src: "/campusConnect/home_screen.png", title: "Home Screen" },
+            { type: "image", src: "/campusConnect/event_detail.png", title: "Event Details" },
+            { type: "image", src: "/campusConnect/host_event.png", title: "Host Event Form" },
+            { type: "image", src: "/campusConnect/admin_dashboard.png", title: "Admin Dashboard" },
+            { type: "image", src: "/campusConnect/my_events.png", title: "My Events" }
+        ],
+        techStack: {
+            frontend: ["React Native", "Expo SDK 54", "React Navigation", "React Native Paper"],
+            backend: ["Node.js", "Express"],
+            orm: ["Prisma"],
+            database: ["PostgreSQL"],
+            authentication: ["JWT", "bcrypt"],
+            storage: ["Async Storage"],
+            imageHandling: ["Expo Image Picker", "Multer"],
+            deployment: ["Expo Go", "EAS Build"],
+            stateManagement: ["React Context API", "useReducer"],
+            notifications: ["React Hot Toast"],
+            packageManager: ["npm"]
+        },
+        features: [
+            "JWT-based authentication & authorization",
+            "Role-based access (User & Admin)",
+            "Event discovery with search & filtering",
+            "Multi-image upload for events",
+            "Event hosting with approval workflow",
+            "Admin dashboard for event management",
+            "Real-time status updates (Pending/Approved/Rejected)",
+            "Profile management",
+            "Dark mode support",
+            "Responsive mobile UI"
+        ],
+        backendArchitecture: {
+            pattern: "MVC",
+            folders: ["controllers/", "routes/", "middlewares/", "config/", "prisma/", "utils/"],
+        },
+        apiEndpoints: [
+            { method: "POST", endpoint: "/api/user/register", desc: "User registration" },
+            { method: "POST", endpoint: "/api/user/login", desc: "User authentication" },
+            { method: "GET", endpoint: "/api/user/me", desc: "Get current user" },
+            { method: "POST", endpoint: "/api/events/request", desc: "Create event request" },
+            { method: "GET", endpoint: "/api/events/", desc: "Get all approved events" },
+            { method: "GET", endpoint: "/api/events/home", desc: "Get events for home screen" },
+            { method: "GET", endpoint: "/api/events/search", desc: "Search events" },
+            { method: "GET", endpoint: "/api/events/me", desc: "Get user's events" },
+            { method: "GET", endpoint: "/api/events/admin", desc: "Admin: Get all events" },
+            { method: "PATCH", endpoint: "/api/events/admin/:id/status", desc: "Admin: Update event status" },
+            { method: "DELETE", endpoint: "/api/events/admin/:id", desc: "Admin: Delete event" },
+        ],
+        github: "https://github.com/MAYANKSHARMA01010/campus_connect",
+        live: "https://drive.google.com/file/d/YOUR_DRIVE_FILE_ID/view",
+        category: "Mobile Dev",
+    }
 ];
